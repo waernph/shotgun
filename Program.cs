@@ -13,7 +13,23 @@
         while (gameIsOn)
         {
             Console.WriteLine(player.PlayerChoice());
-            Console.WriteLine(player.Shots);
+            Console.WriteLine($"Spelare 1 skott: {player.Shots}");
+            Console.Clear();
+            computer.PlayerChoice();
+            Console.WriteLine($"Spelare 2 skott: {computer.Shots}");
+            
+
+            if (player.GameOver())
+            {
+                Console.WriteLine("Spelare 2 vann!");
+                gameIsOn = false;
+            }
+            else if (computer.GameOver())
+            {
+                Console.WriteLine("Spelare 1 vann!");
+                gameIsOn = false;
+            }
         }
+        Console.ReadLine();
     }
 }

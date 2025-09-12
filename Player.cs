@@ -1,11 +1,15 @@
 class Player
 {
-    //private int shots = 0;
-    public int Shots; //Property för skott
+    private int shots = 0;
+    public int Shots
+    {
+        get { return shots; }
+        set { shots = value; }
+    } //Property för skott
     public bool IsHuman; //Property för om spelare är människa eller dator.
 
     //För att avgöra om spelaren ska få fråga eller ska slumpas fram.
-    public char UserInput { private get; set; } //Property för att ta emot svar från spelare
+    private char UserInput { get; set; } //Property för att ta emot svar från spelare
 
     public Player(bool isHuman)
     {
@@ -40,10 +44,12 @@ class Player
 
         if (UserInput == 's')
         {
+            Shots -= 1;
             return 1;
         }
         else if (UserInput == 'l')
         {
+            Shots += 1;
             return 2;
         }
         else if (UserInput == 'b')
@@ -81,19 +87,15 @@ class Player
         }
     }
 
-    private void ShotDiff()
+    public bool GameOver()
     {
-        if (PlayerChoice() == 1)
+        if (PlayerChoice() == 4)
         {
-            Shots -= 1;
-        }
-        else if (PlayerChoice() == 2)
-        {
-            Shots += 1;
+            return true;
         }
         else
         {
-            Shots += 0;
+            return false;
         }
     }
 }
