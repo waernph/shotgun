@@ -2,7 +2,7 @@ using System.Xml.Serialization;
 
 class Player
 {
-    public int Shots { get; set; } //Property för skott
+    private int Shots { get; set; } //Property för skott
     public bool IsHuman { get; set; } //Property för om spelare är människa eller dator.
 
     //För att avgöra om spelaren ska få fråga eller ska slumpas fram.
@@ -56,7 +56,7 @@ class Player
         return UserInput;
     }
 
-    public char PlayerRandom() //Returnerar en char för
+    private char PlayerRandom() //Returnerar en char för
     {
         string choices = "ssllbbhh";
         Random rnd = new Random();
@@ -74,6 +74,22 @@ class Player
         {
             int index = rnd.Next(5, 7);
             return choices[index];
+        }
+    }
+
+    private void ShotDiff()
+    {
+        if (PlayerChoice() == 1)
+        {
+            Shots -= 1;
+        }
+        else if (PlayerChoice() == 2)
+        {
+            Shots += 1;
+        }
+        else
+        {
+            Shots += 0;
         }
     }
 }
