@@ -1,12 +1,31 @@
-using System.Xml.Serialization;
-
 class Player
 {
-    private int Shots { get; set; } //Property för skott
-    public bool IsHuman { get; set; } //Property för om spelare är människa eller dator.
+    //private int shots = 0;
+    public int Shots; //Property för skott
+    public bool IsHuman; //Property för om spelare är människa eller dator.
 
     //För att avgöra om spelaren ska få fråga eller ska slumpas fram.
     public char UserInput { private get; set; } //Property för att ta emot svar från spelare
+
+    public Player(bool isHuman)
+    {
+        IsHuman = isHuman;
+    }
+
+    private char PlayerInput()
+    {
+        if (Shots < 3)
+        {
+            Console.WriteLine("Välj (S)kjut, (L)adda eller (B)locka");
+            UserInput = char.ToLower(Console.ReadKey().KeyChar);
+        }
+        else
+        {
+            Console.WriteLine("Välj (S)kjut, (L)adda, (B)locka eller (H)agelgevär");
+            UserInput = char.ToLower(Console.ReadKey().KeyChar);
+        }
+        return UserInput;
+    }
 
     public int PlayerChoice()
     {
@@ -39,21 +58,6 @@ class Player
         {
             return 0;
         }
-    }
-
-    private char PlayerInput()
-    {
-        if (Shots < 3)
-        {
-            Console.WriteLine("Välj (S)kjut, (L)adda eller (B)locka");
-            UserInput = char.ToLower(Console.ReadKey().KeyChar);
-        }
-        else
-        {
-            Console.WriteLine("Välj (S)kjut, (L)adda, (B)locka eller (H)agelgevär");
-            UserInput = char.ToLower(Console.ReadKey().KeyChar);
-        }
-        return UserInput;
     }
 
     private char PlayerRandom() //Returnerar en char för
