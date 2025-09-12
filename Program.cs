@@ -4,6 +4,7 @@
     {
         Player player = new Player(true);
         Player computer = new Player(false);
+        Graphics graphics = new Graphics();
         computer.Shots = 0;
         player.Shots = 0;
         computer.IsHuman = false;
@@ -12,12 +13,7 @@
 
         while (gameIsOn)
         {
-            Console.WriteLine(player.PlayerChoice());
-            Console.WriteLine($"Spelare 1 skott: {player.Shots}");
-            Console.Clear();
-            computer.PlayerChoice();
-            Console.WriteLine($"Spelare 2 skott: {computer.Shots}");
-            
+            Console.WriteLine(graphics.Prompts(player.Shots));
 
             if (player.GameOver())
             {

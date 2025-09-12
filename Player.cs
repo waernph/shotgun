@@ -18,17 +18,7 @@ class Player
 
     private char PlayerInput()
     {
-        if (Shots < 3)
-        {
-            Console.WriteLine("Välj (S)kjut, (L)adda eller (B)locka");
-            UserInput = char.ToLower(Console.ReadKey().KeyChar);
-        }
-        else
-        {
-            Console.WriteLine("Välj (S)kjut, (L)adda, (B)locka eller (H)agelgevär");
-            UserInput = char.ToLower(Console.ReadKey().KeyChar);
-        }
-        return UserInput;
+            return char.ToLower(Console.ReadKey().KeyChar);
     }
 
     public int PlayerChoice()
