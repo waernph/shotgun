@@ -16,14 +16,19 @@
             Console.WriteLine(graphics.Prompts(player.Shots));
             computer.PlayerChoice();
 
-            if (player.GameOver())
+            if (player.GameOver() && !computer.GameOver())
             {
                 Console.WriteLine("Spelare 1 vann!");
                 gameIsOn = false;
             }
-            else if (computer.GameOver())
+            else if (computer.GameOver() && !player.GameOver())
             {
                 Console.WriteLine("Spelare 2 vann!");
+                gameIsOn = false;
+            }
+            else if (player.GameOver() && computer.GameOver())
+            {
+                Console.WriteLine("Oavgjort!");
                 gameIsOn = false;
             }
         }
