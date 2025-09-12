@@ -4,9 +4,9 @@
     {
         Player player = new Player();
         Player computer = new Player();
+        computer.IsHuman = false;
+        
 
-        player.Shots = 3;
-
-        Console.WriteLine(player.UserInputConversion());
+        Console.WriteLine(computer.PlayerChoice());
     }
 }

@@ -2,16 +2,23 @@ using System.Xml.Serialization;
 
 class Player
 {
-    public int Shots { get; private set; }      //Property för skott
-    public bool IsHuman { get; set; }           //Property för om spelare är människa eller dator.
-                                                //För att avgöra om spelaren ska få fråga eller ska slumpas fram.
+    public int Shots { get; set; } //Property för skott
+    public bool IsHuman { get; set; } //Property för om spelare är människa eller dator.
+
+    //För att avgöra om spelaren ska få fråga eller ska slumpas fram.
     public char UserInput { private get; set; } //Property för att ta emot svar från spelare
-    private int Choice;           //För att spara val för användare/dator? Behövs inte?
 
-
-    public int UserInputConversion()
+    public int PlayerChoice()
     {
-        UserInput = AskPlayer();
+        if (IsHuman)
+        {
+            UserInput = PlayerInput();
+        }
+        else
+        {
+            UserInput = PlayerRandom();
+        }
+
         if (UserInput == 's')
         {
             return 1;
@@ -34,7 +41,7 @@ class Player
         }
     }
 
-    private char AskPlayer()
+    private char PlayerInput()
     {
         if (Shots < 3)
         {
@@ -47,5 +54,26 @@ class Player
             UserInput = char.ToLower(Console.ReadKey().KeyChar);
         }
         return UserInput;
+    }
+
+    public char PlayerRandom() //Returnerar en char för
+    {
+        string choices = "ssllbbhh";
+        Random rnd = new Random();
+        if (Shots == 0)
+        {
+            int index = rnd.Next(2, 5);
+            return choices[index];
+        }
+        else if (Shots > 0 && Shots < 3)
+        {
+            int index = rnd.Next(0, 5);
+            return choices[index];
+        }
+        else
+        {
+            int index = rnd.Next(5, 7);
+            return choices[index];
+        }
     }
 }
