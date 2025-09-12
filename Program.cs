@@ -14,15 +14,16 @@
         while (gameIsOn)
         {
             Console.WriteLine(graphics.Prompts(player.Shots));
+            computer.PlayerChoice();
 
             if (player.GameOver())
             {
-                Console.WriteLine("Spelare 2 vann!");
+                Console.WriteLine("Spelare 1 vann!");
                 gameIsOn = false;
             }
             else if (computer.GameOver())
             {
-                Console.WriteLine("Spelare 1 vann!");
+                Console.WriteLine("Spelare 2 vann!");
                 gameIsOn = false;
             }
         }
