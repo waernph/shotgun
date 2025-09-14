@@ -86,28 +86,6 @@ class Player
                 break;
         }
 
-        /*         if (UserInput == 's' && shots > 0) //Val att göra, skjuta, ladda eller blocka
-                {
-                    shots -= 1;
-                    return 1;
-                }
-                else if (UserInput == 'l')
-                {
-                    shots += 1;
-                    return 2;
-                }
-                else if (UserInput == 'b')
-                {
-                    return 3;
-                }
-                else if (UserInput == 'h' && Shots >= 3)
-                {
-                    return 4;
-                }
-                else
-                {
-                    return 0;
-                } */
     }
 
     private char PlayerRandom() //Returnerar en char för
@@ -126,7 +104,7 @@ class Player
         }
         else
         {
-            int index = rnd.Next(6, 7);
+            int index = rnd.Next(5, 7);
             return choices[index];
         }
     }
