@@ -1,5 +1,6 @@
 class Player
 {
+    Graphics gfx = new Graphics();
     private int shots = 0;
     public int Shots
     {
@@ -10,7 +11,12 @@ class Player
 
     //För att avgöra om spelaren ska få fråga eller ska slumpas fram.
     private char UserInput { get; set; } //Property för att ta emot svar från spelare
-    private int Choice;
+    int choice = 9;
+    public int Choice
+    {
+        get { return choice; }
+        set { choice = value; }
+    }
 
     public Player(bool isHuman)
     {
@@ -62,9 +68,8 @@ class Player
                 }
                 else
                 {
-                    Console.WriteLine("Du har inga skott, förök inte!");
-                    Choice = 9;
-                    break;
+                    Choice = 100;
+                    goto default;
                 }
 
             case 'l':
@@ -77,15 +82,28 @@ class Player
                 break;
 
             case 'h':
-                Choice = 4;
-                break;
+                if (shots >= 3)
+                {
+                    Choice = 4;
+                    break;
+                }
+                else
+                {
+                    Choice = 102;
+                    goto default;
+                }
 
             default:
-                Console.WriteLine("Valet finns inte. Försök igen");
-                Choice = 9;
+                if (choice != 100 && choice != 102)
+                {
+                    Choice = 101;
+                }
+                Console.Clear();
+                gfx.ShotgunLogo();
+                gfx.NotValidInput(Choice);
+                choice = 9;
                 break;
         }
-
     }
 
     private char PlayerRandom() //Returnerar en char för
@@ -111,7 +129,7 @@ class Player
 
     public bool GameOver()
     {
-        if (Choice == 4)
+        if (Choice == 4 && Shots > 3)
         {
             return true;
         }

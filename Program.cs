@@ -18,7 +18,15 @@
             gfx.ShotgunLogo();
             gfx.ShotsLeft(player1Shots, player2Shots);
             player1.PlayerChoice();
+            while (player1.Choice == 9)
+            {
+                player1.PlayerChoice();
+            }
             player2.PlayerChoice();
+            while (player2.Choice == 9)
+            {
+                player2.PlayerChoice();
+            }
 
             if (player1.GameOver())
             {
