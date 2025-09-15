@@ -33,15 +33,15 @@ class Player
         ];
         if (shots > 0 && shots < 3)
         {
-            Console.WriteLine(Options[1]);
+            Console.Write(Options[1]);
         }
         else if (shots >= 3)
         {
-            Console.WriteLine(Options[2]);
+            Console.Write(Options[2]);
         }
         else
         {
-            Console.WriteLine(Options[0]);
+            Console.Write(Options[0]);
         }
         return char.ToLower(Console.ReadKey().KeyChar);
     }
@@ -112,7 +112,7 @@ class Player
         Random rnd = new Random();
         if (Shots == 0)
         {
-            int index = rnd.Next(2, 5);
+            int index = rnd.Next(2, 4);
             return choices[index];
         }
         else if (Shots > 0 && Shots < 3)
@@ -129,7 +129,7 @@ class Player
 
     public bool GameOver()
     {
-        if (Choice == 4 && Shots > 3)
+        if (Choice == 4 && Shots >= 3)
         {
             return true;
         }

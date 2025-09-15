@@ -12,3 +12,4 @@ C:\Users\waern\documents\dotnet\shotgun\obj\Debug\net9.0\refint\shotgun.dll
 C:\Users\waern\documents\dotnet\shotgun\obj\Debug\net9.0\shotgun.pdb
 C:\Users\waern\documents\dotnet\shotgun\obj\Debug\net9.0\shotgun.genruntimeconfig.cache
 C:\Users\waern\documents\dotnet\shotgun\obj\Debug\net9.0\ref\shotgun.dll
+C:\Users\waern\Documents\dotnet\shotgun\obj\Debug\net9.0\shotgun.sourcelink.json
